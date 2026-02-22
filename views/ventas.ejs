@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ventas del día</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <%
+const partes = hoy.split("-");
+const fechaBonita = `${partes[2]}/${partes[1]}/${partes[0]}`;
+%>
+
+<h1>📊 Ventas del día <%= fechaBonita %></h1>
+<form method="GET" action="/ventas" class="selector-fecha">
+  <label>Ver ventas por fecha:</label>
+  <input type="date" name="fechaInput" id="fechaInput">
+  <button>Ver</button>
+</form>
+    <% if(ventas.length === 0){ %>
+      <p class="empty">Aún no hay ventas registradas</p>
+    <% } %>
+
+    <% ventas.forEach((v,i) => { %>
+
+  <div class="card venta-card">
+
+    <h3 class="venta-titulo">🧾 Venta <%= i+1 %></h3>
+
+    <% let totalVenta = 0; %>
+
+    <% v.items.forEach(it => { 
+        const subtotal = it.precio * it.cantidad;
+        totalVenta += subtotal;
+    %>
+
+      <div class="venta-linea">
+        <span><%= it.nombre %> x <%= it.cantidad %></span>
+        <span>S/<%= subtotal %></span>
+      </div>
+
+    <% }) %>
+
+    <div class="venta-total">
+      Total venta: S/<%= totalVenta %>
+    </div>
+
+  </div>
+
+<% }) %>
+
+    <h2 class="total-dia">Total vendido: S/<%= totalDia %></h2>
+
+    <div class="volver">
+      <a href="/">⬅ Volver al menú</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

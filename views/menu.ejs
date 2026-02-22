@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú Proteico</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🥤 Menú Proteico</h1>
+
+    <% productos.forEach(p => { %>
+      <div class="card">
+        <div>
+          <b><%= p.nombre %></b>
+          <p>S/<%= p.precio %></p>
+        </div>
+
+        <form action="/agregar" method="POST">
+          <input type="hidden" name="id" value="<%= p.id %>">
+          <button class="btn">Agregar</button>
+        </form>
+      </div>
+    <% }) %>
+
+    <div class="pedido-link">
+      <a href="/pedido">🧾 Ver Pedido (<%= totalItems %>)</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

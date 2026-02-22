@@ -1,0 +1,213 @@
+body {
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+
+  display: flex;
+  justify-content: center;   /* centra horizontal */
+  align-items: center;       /* centra vertical */
+  min-height: 100vh;         /* ocupa toda la pantalla */
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;   /* ancho tipo app móvil */
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  margin-bottom: 22px;   /* ← aumenta separación */
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card p {
+  margin: 5px 0 0;
+  color: #555;
+}
+
+.btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #218838;
+}
+
+.pedido-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pedido-link a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.total {
+  text-align: center;
+  margin-top: 20px;
+  color: #222;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-dark {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+}
+
+.volver {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.volver a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.venta-linea {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  color: #444;
+}
+
+.total-dia {
+  text-align: center;
+  margin-top: 25px;
+  color: #111;
+  font-size: 24px;
+}
+
+.selector-fecha {
+  background: #f9fafb;
+  padding: 16px;
+  margin: 10px 0 35px 0;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.selector-fecha input {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ===== TARJETAS DE VENTAS ===== */
+
+.venta-card {
+  margin-bottom: 22px;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.venta-titulo {
+  margin: 0 0 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.venta-linea {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  color: #444;
+  font-size: 14px;
+}
+
+.venta-total {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+  font-weight: 600;
+  text-align: right;
+  color: #111;
+  font-size: 15px;
+}
+
+.selector-fecha {
+  background: #f9fafb;
+  padding: 14px;
+  margin: 15px 0 30px 0;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.selector-fecha button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 7px;
+  cursor: pointer;
+}

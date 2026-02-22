@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🧾 Pedido</h1>
+
+    <% if(pedidoActual.length === 0){ %>
+      <p class="empty">No hay productos en el pedido</p>
+    <% } %>
+
+    <% pedidoActual.forEach(p => { %>
+      <div class="card">
+
+        <div>
+          <b><%= p.nombre %></b>
+          <p>x <%= p.cantidad %> = S/<%= p.precio * p.cantidad %></p>
+        </div>
+
+        <form action="/eliminar-item" method="POST">
+          <input type="hidden" name="id" value="<%= p.id %>">
+          <button class="btn-danger">❌</button>
+        </form>
+
+      </div>
+    <% }) %>
+
+    <h2 class="total">Total: S/<%= total %></h2>
+
+    <div class="actions">
+
+      <form action="/vaciar" method="POST">
+        <button class="btn-dark">🗑 Vaciar Pedido</button>
+      </form>
+
+      <form action="/confirmar" method="POST">
+        <button class="btn">Confirmar venta</button>
+      </form>
+
+    </div>
+
+    <div class="volver">
+      <a href="/">⬅ Volver al menú</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
