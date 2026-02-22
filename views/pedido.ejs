@@ -17,20 +17,18 @@
     <% } %>
 
     <% pedidoActual.forEach(p => { %>
-      <div class="card">
+  <div class="pedido-linea">
+    <div class="producto-info">
+      <span class="nombre"><%= p.nombre %></span>
+      <span class="cantidad-precio">x <%= p.cantidad %> = S/<%= p.precio * p.cantidad %></span>
+    </div>
 
-        <div>
-          <b><%= p.nombre %></b>
-          <p>x <%= p.cantidad %> = S/<%= p.precio * p.cantidad %></p>
-        </div>
-
-        <form action="/eliminar-item" method="POST">
-          <input type="hidden" name="id" value="<%= p.id %>">
-          <button class="btn-danger">❌</button>
-        </form>
-
-      </div>
-    <% }) %>
+    <form action="/eliminar-item" method="POST" class="eliminar-form">
+      <input type="hidden" name="id" value="<%= p.id %>">
+      <button class="btn-danger">🗙</button>
+    </form>
+  </div>
+<% }) %>
 
     <h2 class="total">Total: S/<%= total %></h2>
 

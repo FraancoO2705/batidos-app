@@ -1,26 +1,42 @@
 body {
-  font-size: 15px;
-  line-height: 1.45;
-}
-
-body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f6f8;
-
+  min-height: 100vh;
   display: flex;
-  justify-content: center;   /* centra horizontal */
-  align-items: center;       /* centra vertical */
-  min-height: 100vh;         /* ocupa toda la pantalla */
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+
+  background-image: url('/images/herbalife.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1 ); /* más transparente */
+  z-index: 0;
 }
 
 .container {
-  width: 100%;
-  max-width: 420px;   /* ancho tipo app móvil */
-  background: white;
-  padding: 25px;
+  position: relative;
+  z-index: 1;
+  width: 95%;
+  max-width: 1200px;
+  background: rgba(255,255,255,0.7);
+  padding: 30px;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  backdrop-filter: blur(12px);
+  box-sizing: border-box;
 }
 
 h1 {
@@ -32,10 +48,10 @@ h1 {
 
 .card {
   background: white;
-  padding: 18px;
+  padding: 20px;
   margin-bottom: 22px;   /* ← aumenta separación */
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .card p {
@@ -47,7 +63,8 @@ h1 {
   background: #28a745;
   color: white;
   border: none;
-  padding: 8px 15px;
+  padding: 10px 20px;
+  font-size: 14px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -210,4 +227,91 @@ html, body {
   padding: 7px 14px;
   border-radius: 7px;
   cursor: pointer;
+}
+
+.actions-menu{
+  display:flex;
+  gap:12px;
+  margin-top:25px;
+  flex-direction:column;
+}
+
+.btn-secondary{
+  background:#007bff;
+  color:white;
+  text-decoration:none;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+  font-weight:bold;
+}
+
+.btn-secondary:hover{
+  background:#0069d9;
+}
+
+.pedido-linea{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.producto-info{
+  display: flex;
+  gap: 8px;   /* separación entre nombre y cantidad-precio */
+}
+
+.nombre{
+  font-weight: 500;
+}
+
+.cantidad-precio{
+  color: #555;
+}
+
+.eliminar-form button{
+  font-size: 14px;
+}
+
+/* GRID PARA PRODUCTOS */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px; /* espacio entre tarjetas */
+  margin-bottom: 25px;
+}
+
+.producto-img {
+  width: 100%;
+  height: 160px;
+  object-fit: scale-down; /* ajusta imagen a contenedor sin recortar */
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 6px;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+.header h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  color: #051609;
+  margin-bottom: 8px;
+}
+
+.header h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+   color: #051609;
+  margin-bottom: 8px;
 }

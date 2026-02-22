@@ -8,26 +8,92 @@
 
 <body>
 
-  <div class="container">
+ <div class="container">
+  <div class="header">
     <h1>🥤 Menú Proteico</h1>
-
-    <% productos.forEach(p => { %>
+  </div>
+    <!-- SECCIÓN BATIDOS -->
+     <div class="header">
+    <h2>Batidos</h2>
+    </div>
+    <div class="grid-container">
+    <% productos.filter(p => ["Batido Proteico Chocolate","Batido Proteico Fresa","Batido Proteico Cookies","Batido Proteico ChocoAvellana"].includes(p.nombre)).forEach(p => { %>
       <div class="card">
+        <img src="<%= p.imagen %>" alt="<%= p.nombre %>" class="producto-img">
         <div>
           <b><%= p.nombre %></b>
           <p>S/<%= p.precio %></p>
         </div>
-
-        <form action="/agregar" method="POST">  
+        <form action="/agregar" method="POST">
           <input type="hidden" name="id" value="<%= p.id %>">
           <button class="btn">Agregar</button>
         </form>
       </div>
     <% }) %>
-
-    <div class="pedido-link">
-      <a href="/pedido">🧾 Ver Pedido (<%= totalItems %>)</a>
     </div>
+    <!-- SECCIÓN WAFFLES -->
+     <div class="header">
+    <h2>Waffles</h2>
+    </div>
+    <div class="grid-container">
+    <% productos.filter(p => ["Wafle Acevichado","Wafle Dulce","Wafle Sandwwich","Wafle Pizza Americana","Wafle Pizza Hawaiana"].includes(p.nombre)).forEach(p => { %>
+      <div class="card">
+        <div>
+          <b><%= p.nombre %></b>
+          <p>S/<%= p.precio %></p>
+        </div>
+        <form action="/agregar" method="POST">
+          <input type="hidden" name="id" value="<%= p.id %>">
+          <button class="btn">Agregar</button>
+        </form>
+      </div>
+    <% }) %>
+    </div>
+    <!-- SECCIÓN BEBIDAS -->
+     <div class="header">
+    <h2>Bebidas</h2>
+    </div>
+    <div class="grid-container">
+    <% productos.filter(p => ["Te","Aloe","Fibra","Drive","Chupapanza"].includes(p.nombre)).forEach(p => { %>
+      <div class="card">
+        <img src="<%= p.imagen %>" alt="<%= p.nombre %>" class="producto-img">
+        <div>
+          <b><%= p.nombre %></b>
+          <p>S/<%= p.precio %></p>
+        </div>
+        <form action="/agregar" method="POST">
+          <input type="hidden" name="id" value="<%= p.id %>">
+          <button class="btn">Agregar</button>
+        </form>
+      </div>
+    <% }) %>
+    </div>
+    <!-- SECCIÓN ADICIONALES -->
+     <div class="header">
+    <h2>Adicionales</h2>
+    </div>
+    <div class="grid-container">
+    <% productos.filter(p => ["Ensalada de Frutas","ShawarmaFit"].includes(p.nombre)).forEach(p => { %>
+      <div class="card">
+        <div>
+          <b><%= p.nombre %></b>
+          <p>S/<%= p.precio %></p>
+        </div>
+        <form action="/agregar" method="POST">
+          <input type="hidden" name="id" value="<%= p.id %>">
+          <button class="btn">Agregar</button>
+        </form>
+      </div>
+    <% }) %>
+    </div>
+<div class="actions-menu">
+  <a href="/pedido" class="btn-secondary">
+    🧾 Ver Pedido (<%= totalItems %>)
+  </a>
+  <a href="/ventas" class="btn-secondary">
+    📊 Ver Ventas
+  </a>
+</div>
 
   </div>
 
