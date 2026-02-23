@@ -38,6 +38,7 @@
     <div class="grid-container">
     <% productos.filter(p => ["Wafle Acevichado","Wafle Dulce","Wafle Sandwwich","Wafle Pizza Americana","Wafle Pizza Hawaiana"].includes(p.nombre)).forEach(p => { %>
       <div class="card">
+        <img src="<%= p.imagen %>" alt="<%= p.nombre %>" class="producto-img">
         <div>
           <b><%= p.nombre %></b>
           <p>S/<%= p.precio %></p>
@@ -75,6 +76,7 @@
     <div class="grid-container">
     <% productos.filter(p => ["Ensalada de Frutas","ShawarmaFit"].includes(p.nombre)).forEach(p => { %>
       <div class="card">
+        <img src="<%= p.imagen %>" alt="<%= p.nombre %>" class="producto-img">
         <div>
           <b><%= p.nombre %></b>
           <p>S/<%= p.precio %></p>

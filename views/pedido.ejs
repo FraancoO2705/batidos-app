@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Pedido</title>
@@ -12,43 +13,91 @@
 
     <h1>🧾 Pedido</h1>
 
-    <% if(pedidoActual.length === 0){ %>
+    <% if(pedidoActual.length===0){ %>
       <p class="empty">No hay productos en el pedido</p>
-    <% } %>
+      <% } %>
 
-    <% pedidoActual.forEach(p => { %>
-  <div class="pedido-linea">
-    <div class="producto-info">
-      <span class="nombre"><%= p.nombre %></span>
-      <span class="cantidad-precio">x <%= p.cantidad %> = S/<%= p.precio * p.cantidad %></span>
-    </div>
+        <% pedidoActual.forEach(p=> { %>
+          <div class="pedido-linea">
+            <div class="producto-info">
+              <span class="nombre">
+                <%= p.nombre %>
+              </span>
+              <span class="cantidad-precio">x <%= p.cantidad %> = S/<%= p.precio * p.cantidad %></span>
+            </div>
 
-    <form action="/eliminar-item" method="POST" class="eliminar-form">
-      <input type="hidden" name="id" value="<%= p.id %>">
-      <button class="btn-danger">🗙</button>
-    </form>
+            <form action="/eliminar-item" method="POST" class="eliminar-form">
+              <input type="hidden" name="id" value="<%= p.id %>">
+              <button class="btn-danger">🗙</button>
+            </form>
+          </div>
+          <% }) %>
+
+            <h2 class="total">Total: S/<%= total %>
+            </h2>
+
+            <div class="actions">
+
+              <form action="/vaciar" method="POST">
+                <button class="btn-dark">🗑 Vaciar Pedido</button>
+              </form>
+
+              <form action="/confirmar" method="POST">
+                <button class="btn">Confirmar venta</button>
+              </form>
+
+            </div>
+
+            <div class="volver">
+              <a href="/">⬅ Volver al menú</a>
+            </div>
+
   </div>
-<% }) %>
 
-    <h2 class="total">Total: S/<%= total %></h2>
-
-    <div class="actions">
-
-      <form action="/vaciar" method="POST">
-        <button class="btn-dark">🗑 Vaciar Pedido</button>
-      </form>
-
-      <form action="/confirmar" method="POST">
-        <button class="btn">Confirmar venta</button>
-      </form>
-
-    </div>
-
-    <div class="volver">
-      <a href="/">⬅ Volver al menú</a>
-    </div>
-
+   <div id="avisoTimeout" style="
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#222;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    display:none;
+    z-index:999;
+  ">
+    ⏳ Volviendo al menú por inactividad...
   </div>
+
+  <script>
+    let tiempoInactividad;
+    let avisoTimeout;
+    const LIMITE = 15000; 
+    const AVISO = 12000; 
+
+    function reiniciarTimer() {
+      clearTimeout(tiempoInactividad);
+      clearTimeout(avisoTimeout);
+
+      document.getElementById("avisoTimeout").style.display = "none";
+
+      avisoTimeout = setTimeout(()=>{
+        document.getElementById("avisoTimeout").style.display = "block";
+      }, AVISO);
+
+      tiempoInactividad = setTimeout(()=>{
+        window.location.href = "/";
+      }, LIMITE);
+    }
+
+    ["click","mousemove","keydown","scroll","touchstart"].forEach(e=>{
+      document.addEventListener(e, reiniciarTimer);
+    });
+
+    reiniciarTimer();
+  </script>
+
 
 </body>
+
 </html>

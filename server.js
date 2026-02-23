@@ -13,22 +13,22 @@ const productos = [
   { id: 4, nombre: "Batido Proteico ChocoAvellana", precio: 12, imagen: "/images/batido_chocolate.jpg" },
 
   // Waffles
-  { id: 5, nombre: "Wafle Acevichado", precio: 10, imagen: "/images/waffle_acevichado.jpg" },
-  { id: 6, nombre: "Wafle Dulce", precio: 10, imagen: "/images/waffle_dulce.jpg" },
-  { id: 7, nombre: "Wafle Sandwich", precio: 13, imagen: "/images/waffle_sandwich.jpg" },
-  { id: 8, nombre: "Wafle Pizza Americana", precio: 13, imagen: "/images/waffle_pizza_americana.jpg" },
-  { id: 9, nombre: "Wafle Pizza Hawaiana", precio: 15, imagen: "/images/waffle_pizza_hawaiana.jpg" },
+  { id: 5, nombre: "Wafle Acevichado", precio: 10, imagen: "/images/acevichado.jpeg" },
+  { id: 6, nombre: "Wafle Dulce", precio: 10, imagen: "/images/dulce.jpeg" },
+  { id: 7, nombre: "Wafle Sandwich", precio: 13, imagen: "/images/sandwich.jpeg" },
+  { id: 8, nombre: "Wafle Pizza Americana", precio: 13, imagen: "/images/pizza.jpeg" },
+  { id: 9, nombre: "Wafle Pizza Hawaiana", precio: 15, imagen: "/images/pizzahawaiana.jpeg" },
 
   // Bebidas
   { id: 10, nombre: "Te", precio: 6, imagen: "/images/fibra.jpeg" },
   { id: 11, nombre: "Aloe", precio: 6, imagen: "/images/fibra.jpeg" },
   { id: 12, nombre: "Fibra", precio: 6, imagen: "/images/drive.jpeg" },
   { id: 13, nombre: "Drive", precio: 6, imagen: "/images/drive.jpeg" },
-  { id: 14, nombre: "Chupapanza", precio: 15, imagen: "/images/drive.jpeg" },
+  { id: 14, nombre: "Chupapanza", precio: 15, imagen: "/images/chupapanza.jpeg" },
 
   // Adicionales
-  { id: 15, nombre: "Ensalada de Frutas", precio: 12, imagen: "/images/ensalada_frutas.jpg" },
-  { id: 16, nombre: "ShawarmaFit", precio: 15, imagen: "/images/shawarmafit.jpg" }
+  { id: 15, nombre: "Ensalada de Frutas", precio: 12, imagen: "/images/ensaladafrutas.jpeg" },
+  { id: 16, nombre: "ShawarmaFit", precio: 15, imagen: "/images/shawarmapollo.jpeg" }
 ];
 
 let pedidoActual = [];
